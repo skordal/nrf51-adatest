@@ -1,0 +1,25 @@
+--  Ada Test Application for NRF51
+--  (c) Kristian Klomsten Skordal 2016 <kristian.skordal@wafflemail.net>
+--  vim:ts=3:sw=3:et:si:sta
+
+with "Ada_Drivers_Library/ARM/Nordic/nrf51.gpr";
+
+project AdaTest is
+
+   for Target use "arm-eabi";
+   for Main use ("adatest.adb");
+
+   package Builder is
+      for Switches ("Ada") use ("--RTS=" & Project'project_dir & "zfp-nrf51");
+   end Builder;
+
+   package Compiler is
+      for Switches ("Ada") use ("-gnatf", "-gnatwa", "-ffunction-sections", "-fdata-sections", "-Os", "-g");
+   end Compiler;
+
+   package Linker is
+      for Default_Switches ("Ada") use ("-Wl,--print-memory-usage", "-Wl,--gc-sections");
+   end Linker;
+
+end AdaTest;
+
