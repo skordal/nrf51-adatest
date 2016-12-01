@@ -1,0 +1,6 @@
+[submodule "zfp-nrf51"]
+	path = zfp-nrf51
+	url = git@github.com:nocko/zfp-nrf51.git
+[submodule "Ada_Drivers_Library"]
+	path = Ada_Drivers_Library
+	url = git@github.com:AdaCore/Ada_Drivers_Library.git
